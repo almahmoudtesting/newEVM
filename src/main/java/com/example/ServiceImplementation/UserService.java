@@ -8,6 +8,7 @@ import com.example.Repository.UserRepository;
 import com.example.ServiceInterface.UsersInterface;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -34,8 +35,8 @@ public class UserService implements UsersInterface {
 
         Users users = new Users();
         users= modelMapper.map(userDTO,Users.class);
-
         users.setRolesname(rolesRepository.findById(name).get());
+        users.setUserpassword(new BCryptPasswordEncoder().encode(userDTO.getUserpassword()));
         //notificationService.sendNotificaitoin(users.getUseremail(),"Event Management CO.",  "Welcome to our website \uD83D\uDE0A : "+ users.getUsername());
          return userRepository.save(users);
     }

@@ -32,9 +32,9 @@ public class TicketService implements TicketInterface {
     }
 
     @Override
-    public void AddTicket(Ticket tckt,Long uid , Long eid ) {
+    public void AddTicket(Long uid , Long eid ) {
 
-
+        Ticket tckt = new Ticket();
         Users users= userRepository.findById(uid).get();
         Event event =eventRepository.findById(eid).get();
         event.setEventcapacity(event.getEventcapacity());

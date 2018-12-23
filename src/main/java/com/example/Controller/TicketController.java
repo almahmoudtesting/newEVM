@@ -21,9 +21,9 @@ public class TicketController {
     @RequestMapping(value = "/FindTickets/{id}")
     public Optional<Ticket> findByIdd(@PathVariable Long id){return ticketInterface.findById(id);}
 
-    @PostMapping (value = "/AddTickets/{uid}/{eid}")
-    public void AddTicket(@RequestBody Ticket tckt, @PathVariable Long uid,@PathVariable Long eid){
-        ticketInterface.AddTicket(tckt,uid,eid);
+    @GetMapping (value = "/AddTickets/{uid}/{eid}")
+    public void AddTicket(@PathVariable Long uid,@PathVariable Long eid){
+        ticketInterface.AddTicket(uid,eid);
     }
 
     @PutMapping (value = "/UpdateTicket")

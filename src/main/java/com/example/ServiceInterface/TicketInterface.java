@@ -11,7 +11,7 @@ public interface TicketInterface {
 
     Iterable<Ticket> findAll();
     Optional<Ticket> findById(Long id);
-    void AddTicket(Ticket tckt,Long uid, Long eid);
+    void AddTicket(Long uid, Long eid);
     void CancelById(Long id);
     void UpdateTicket(Ticket utckt);
     List<Ticket> findByCancelledFalse();
