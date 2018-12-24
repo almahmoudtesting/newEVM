@@ -38,7 +38,8 @@ public class TicketService implements TicketInterface {
         Users users= userRepository.findById(uid).get();
         Event event =eventRepository.findById(eid).get();
         event.setEventcapacity(event.getEventcapacity());
-
+        tckt.setEventname(event.getEventname());
+        tckt.setEventdate(event.getEventdate());
         LocalDate d = LocalDate.now().minusDays(1);
 
         if (event.getEcounter() < event.getEventcapacity() && event.isApproved() && d.isBefore(event.getEventdate()))

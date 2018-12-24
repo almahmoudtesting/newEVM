@@ -3,6 +3,7 @@ package com.example.Entity;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Ticket")
@@ -28,6 +29,10 @@ public class Ticket {
 
     @ColumnDefault(value = "0")
     private boolean attended;
+
+    private LocalDate eventdate;
+
+    private String eventname;
 
     public long getTicketid() {
         return ticketid;
@@ -67,6 +72,22 @@ public class Ticket {
 
     public void setAttended(boolean attended) {
         this.attended = attended;
+    }
+
+    public LocalDate getEventdate() {
+        return eventdate;
+    }
+
+    public void setEventdate(LocalDate eventdate) {
+        this.eventdate = eventdate;
+    }
+
+    public String getEventname() {
+        return eventname;
+    }
+
+    public void setEventname(String eventname) {
+        this.eventname = eventname;
     }
 }
 
