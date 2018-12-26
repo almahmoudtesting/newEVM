@@ -27,7 +27,7 @@ public class UserController {
     private ModelMapper modelMapper;
 
     @RequestMapping (value = "/AllUsers", method = RequestMethod.GET)
-   // @PreAuthorize("(hasRole('ADMIN'))")
+    @PreAuthorize("(hasRole('ADMIN'))")
     public Iterable<Users> getAllUsers(){ return usersInterface.findAll(); }
 
     @RequestMapping(value = "/FindUsers/{id}")
