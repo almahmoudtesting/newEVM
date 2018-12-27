@@ -54,6 +54,11 @@ public class UserService implements UsersInterface {
     }}
 
     @Override
+    public long countByEnabledTrueOrEnabledFalse() {
+        return userRepository.countByEnabledTrueOrEnabledFalse();
+    }
+
+    @Override
     public UserDTO findByUserName(String a)
     {
        Users users =  userRepository.findByUsername(a);
@@ -65,6 +70,13 @@ public class UserService implements UsersInterface {
     public Roles findByRolesName(String b) {
        return rolesRepository.findById(userRepository.findByUsername(b).getRolesname().getRolesname()).get();
 
+    }
+
+    @Override
+    public void EnabeleUser(Long id) {
+        Users euser = userRepository.findById(id).get();
+        euser.setEnabled(true);
+        userRepository.save(euser);
     }
 
 

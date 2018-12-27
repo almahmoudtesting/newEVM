@@ -54,4 +54,8 @@ public class UserController {
     @DeleteMapping (value = "/DeleteUser/{id}")
     @PreAuthorize("(hasRole('ADMIN'))")
     public void DeleteUser(@PathVariable Long id){usersInterface.DeleteUser(id);}
+
+    @GetMapping (value = "/EnableUser/{id}")
+    @PreAuthorize("(hasRole('ADMIN'))")
+    public void EnableUser(@PathVariable Long id){usersInterface.EnabeleUser(id);}
 }

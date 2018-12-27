@@ -76,7 +76,8 @@ public class TicketService implements TicketInterface {
 
     @Override
     public List<Ticket> findAllByattenderid(long userid) {
-         return ticketRepository.findAllByAttenderid(userRepository.findById(userid).get());
+//         return ticketRepository.findAllByAttenderid(userRepository.findById(userid).get());
+        return ticketRepository.findByAttenderidUserid(userid);
     }
 
 

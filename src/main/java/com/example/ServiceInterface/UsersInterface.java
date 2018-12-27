@@ -14,8 +14,9 @@ public interface UsersInterface {
     void DeleteUser(Long id);
     Users  AddUser(UserDTO userDTO,String name);
      void UpdateUser(UserDTO userDTO, Long uid);
-
+    long countByEnabledTrueOrEnabledFalse();
      UserDTO findByUserName(String a);
      Roles findByRolesName(String b);
+     void  EnabeleUser(Long id);
 
 }
