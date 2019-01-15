@@ -31,7 +31,7 @@ public class CommentController {
     @PutMapping(value = "/UpdateComment/{id}")
     public void UpdateComment (@RequestBody Comment ucmnt){commentInterface.UpdateComment(ucmnt);}
 
-    @PutMapping (value = "/DeleteComment/{id}")
+    @GetMapping (value = "/DeleteComment/{id}")
     public void CancelComment (@PathVariable long id){commentInterface.CancelComment(id);}
 
     @GetMapping (value = "/PostedComments")
