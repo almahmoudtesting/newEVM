@@ -39,7 +39,7 @@ public class EventController {
     public void UpdateEvent (@Valid @RequestBody EventDTO eventDTO, @PathVariable Long id){
         eventInterface.UpdateEvent(eventDTO,id);}
 
-    @PutMapping (value = "/DeleteEvent/{id}")
+    @DeleteMapping (value = "/DeleteEvent/{id}")
     public  void DeleteEvent (@PathVariable Long id){eventInterface.DeleteEvent(id);}
 
     @GetMapping  (value = "/ApprovedActiveEvents")
