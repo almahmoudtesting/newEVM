@@ -31,7 +31,7 @@ public class UserController {
     public Iterable<Users> getAllUsers(){ return usersInterface.findAll(); }
 
     @RequestMapping(value = "/FindUsers/{id}")
-    @PreAuthorize("(hasAnyRole('ADMIN','USER'))")
+   // @PreAuthorize("(hasAnyRole('ADMIN','USER'))")
     public Optional<Users> findByIdd(@PathVariable Long id){return usersInterface.findById(id);}
 
     @PostMapping (value = "/AddUsers/{name}")
