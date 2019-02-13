@@ -50,6 +50,7 @@ public class UserService implements UsersInterface {
         if (userRepository.findById(uid).isPresent()){
         users.setUserid(uid);
         users.setRolesname(users1.getRolesname());
+        users.setUserpassword(new BCryptPasswordEncoder().encode(userDTO.getUserpassword()));
         userRepository.save(users);
     }}
 
@@ -80,6 +81,11 @@ public class UserService implements UsersInterface {
     }
 
 
+    public boolean isUserEnabled(Long id) {
+        return userRepository.existsByUseridAndEnabledTrue(id);
+    }
+
+
     public Iterable<Users> findAll() {
     return userRepository.findAll();
     }
@@ -93,6 +99,10 @@ public class UserService implements UsersInterface {
     duser.setEnabled(false);
     userRepository.save(duser);
 
+    }
+
+    public boolean existsByUsernameAndAndEnabledTrue(String u){
+        return userRepository.existsByUsernameAndAndEnabledTrue(u);
     }
 
 }
