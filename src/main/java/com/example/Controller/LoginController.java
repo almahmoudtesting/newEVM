@@ -36,7 +36,7 @@ public class LoginController {
     @PostMapping("/UserData")
     public ResponseEntity hello(@RequestBody LoginBody loginBody) {
         if (!userService.existsByUsernameAndAndEnabledTrue(loginBody.getUsername())) {
-            throw new RuntimeException("User Login field");
+            throw new RuntimeException("User Login Failed");
         }
         UserDTO userDTO1 = userService.findByUserName(loginBody.getUsername());
         if (userService.isUserEnabled(userDTO1.getUserid()) && new BCryptPasswordEncoder().matches(loginBody.getUserpassword(), userDTO1.getUserpassword())) {
